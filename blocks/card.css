@@ -42,10 +42,5 @@
   font-weight: 900;
   line-height: 29.05px;
   text-align: left;
-}
-
-@media screen and (max-width: 480px) {
-  .card__list {
-    margin-top: 36px;
-  }
+  margin: 0;
 }
