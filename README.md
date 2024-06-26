@@ -22,7 +22,7 @@ The way you'll do this at work is by exporting images directly from Figma — we
 
 Here is a link to my project
 
-- [Project](https://github.com/SchmalbeckJ/se_project_aroundtheus.git)
+- [Project](https://schmalbeckj.github.io/se_project_aroundtheus/)
 
 **Practice Video**
 
