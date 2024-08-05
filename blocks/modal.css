@@ -1,0 +1,140 @@
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 777;
+  padding: 0 19px;
+  display: none;
+}
+
+.modal_opened {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__container {
+  border-radius: 10px;
+  width: 430px;
+  height: 330px;
+  background-color: #fff;
+  position: relative;
+}
+
+.modal__close {
+  background-image: url(../images/close-icon.svg);
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+.modal__heading {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 34px 64px 0 36px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  text-align: left;
+  width: 330px;
+  height: 23px;
+  color: #000;
+}
+
+.modal__title {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 54px 36px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: left;
+  width: 358px;
+  height: 27.26px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.modal__description {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 29.27px 36px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: left;
+  width: 358px;
+  height: 27.34px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.modal__button {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background-color: #000;
+  color: #fff;
+  padding: 0;
+  margin: 48px 36px 36px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: center;
+  width: 358px;
+  height: 50.15px;
+}
+
+@media screen and (max-width: 630px) {
+  .modal__container {
+    width: 282px;
+    height: 322px;
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+
+  .modal__heading {
+    width: 238px;
+    height: 22px;
+    margin: 25px 22px 0;
+  }
+
+  .modal__title {
+    width: 238px;
+    height: 27px;
+    margin: 75px 22px 0;
+  }
+
+  .modal__description {
+    width: 238px;
+    height: 27px;
+    margin: 30px 22px 0;
+  }
+
+  .modal__button {
+    width: 238px;
+    height: 46px;
+    margin: 45px 22px 25px;
+  }
+
+  .modal__close {
+    height: 26px;
+    width: 26px;
+    top: -45px;
+    right: -1px;
+  }
+}
