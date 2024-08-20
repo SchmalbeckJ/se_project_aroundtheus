@@ -24,10 +24,15 @@
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"
+              aria-label="close"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            aria-label="close"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
@@ -40,22 +45,29 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-button"></button>
-        <p class="modal__heading">Edit Profile</p>
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"
+          aria-label="close"
+        ></button>
+        <h2 class="modal__heading">Edit Profile</h2>
         <form class="modal__form">
           <input
             type="text"
             name="title"
             id="profile-title-input"
             placeholder="Name"
-            class="modal__title"
+            class="modal__title modal__input"
+            required
           />
           <input
             type="text"
             name="description"
             id="profile-description-input"
             placeholder="Description"
-            class="modal__description"
+            class="modal__description modal__input"
+            required
           />
           <button class="modal__button" type="submit">Save</button>
         </form>
@@ -67,7 +79,11 @@
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__name"></h2>
-          <button class="card__like-button" type="button"></button>
+          <button
+            class="card__like-button"
+            type="button"
+            aria-label="close"
+          ></button>
         </div>
       </li>
     </template>

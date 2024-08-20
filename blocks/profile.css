@@ -27,10 +27,11 @@
   border-color: #fff;
   align-self: center;
   grid-area: button;
+  transition: opacity 0.3s ease;
 }
 
 .profile__edit-button:hover {
-  opacity: 60%;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -42,10 +43,11 @@
   height: 50px;
   padding: 0;
   margin-left: auto;
+  transition: opacity 0.3s ease;
 }
 
 .profile__add-button:hover {
-  opacity: 60%;
+  opacity: 0.6;
   cursor: pointer;
 }
 
