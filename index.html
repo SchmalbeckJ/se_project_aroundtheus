@@ -105,12 +105,48 @@
         </form>
       </div>
     </div>
+    <!-- image modal-->
+    <div class="modal" id="card-image-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="card-modal-close"
+          type="button"
+          aria-label="close"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form">
+          <input
+            type="text"
+            name="Place"
+            id="card-title-input"
+            placeholder="Title"
+            class="modal__title modal__input"
+            required
+          />
+          <input
+            type="text"
+            name="url"
+            id="card-url-input"
+            placeholder="Image URL"
+            class="modal__description modal__input"
+            required
+          />
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
     <!---->
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__name"></h2>
+          <button
+            class="card__delete-button"
+            type="button"
+            aria-label="delete"
+          ></button>
           <button
             class="card__like-button"
             type="button"
@@ -119,7 +155,6 @@
         </div>
       </li>
     </template>
-
     <script src="./scripts/index.js"></script>
   </body>
 </html>

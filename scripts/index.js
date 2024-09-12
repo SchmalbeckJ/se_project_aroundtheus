@@ -57,6 +57,27 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardNameEl = cardElement.querySelector(".card__name");
+  const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+  const previewImageModal = cardElement.querySelector("#card-image-modal");
+
+  //add click listener to the cardImageEL
+  // openModal with previewImageModal HINT:add it into HTML????
+  //HINT:find the previewImageModal with the other elements^ call it with the image element that will be in cardImageEL
+
+  cardImageEl.addEventListener("click", () => {
+    openModal(cardImageEl);
+    console.log("been clicked");
+  });
+
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove("cardTemplate");
+  });
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
+
   cardImageEl.src = cardData.link;
   cardNameEl.textContent = cardData.name;
   cardImageEl.alt = cardData.alt;
@@ -96,11 +117,3 @@ function initializeCards(cardDataArray) {
 }
 
 initializeCards(initialCards);
-
-const likeButtons = document.querySelectorAll(".card__like-button");
-
-likeButtons.forEach((likeButton) => {
-  likeButton.addEventListener("click", () => {
-    console.log("click");
-  });
-});
