@@ -40,6 +40,7 @@ const profileDescriptionInput = document.querySelector(
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const previewImageModal = document.querySelector("#card-image-modal");
+const imageModalCloseButton = document.querySelector("#image-modal-close");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -95,16 +96,21 @@ addCardButton.addEventListener("click", () => {
 });
 
 // Close buttons
-[modalCloseButton, cardModalClosebutton].forEach((button) => {
-  button.addEventListener("click", closeModal);
-});
+[modalCloseButton, cardModalClosebutton, imageModalCloseButton].forEach(
+  (button) => {
+    button.addEventListener("click", () => {
+      const modal = button.closest(".modal");
+      closeModal(modal);
+    });
+  }
+);
 
 // Update profile on form submission
 profileEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal();
+  closeModal(profileEditModal);
 });
 
 // Initialize cards
