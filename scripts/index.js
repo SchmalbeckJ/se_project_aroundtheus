@@ -39,6 +39,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const previewImageModal = document.querySelector("#card-image-modal");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -48,9 +49,8 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
-  addCardModal.classList.remove("modal_opened");
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function getCardElement(cardData) {
@@ -59,14 +59,13 @@ function getCardElement(cardData) {
   const cardNameEl = cardElement.querySelector(".card__name");
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
-  const previewImageModal = cardElement.querySelector("#card-image-modal");
 
   //add click listener to the cardImageEL
   // openModal with previewImageModal HINT:add it into HTML????
   //HINT:find the previewImageModal with the other elements^ call it with the image element that will be in cardImageEL
 
   cardImageEl.addEventListener("click", () => {
-    openModal(cardImageEl);
+    openModal(previewImageModal);
     console.log("been clicked");
   });
 
@@ -97,7 +96,7 @@ addCardButton.addEventListener("click", () => {
 
 // Close buttons
 [modalCloseButton, cardModalClosebutton].forEach((button) => {
-  button.addEventListener("click", closePopup);
+  button.addEventListener("click", closeModal);
 });
 
 // Update profile on form submission
@@ -105,7 +104,7 @@ profileEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  closeModal();
 });
 
 // Initialize cards
