@@ -73,9 +73,6 @@ function getCardElement(cardData) {
   });
 
   deleteButton.addEventListener("click", () => {
-    cardImageEl.src = cardData.link;
-    cardNameEl.textContent = cardData.name;
-    cardImageEl.alt = cardData.alt;
     cardElement.remove("cardTemplate");
   });
 
