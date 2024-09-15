@@ -104,6 +104,19 @@
   cursor: pointer;
 }
 
+.modal__image {
+  height: 540px;
+  width: 816px;
+}
+
+.modal__image-name {
+  padding: 0;
+  margin: 0;
+  height: 12px;
+  width: 291px;
+  color: #fff;
+}
+
 @media screen and (max-width: 630px) {
   .modal__container {
     width: 282px;

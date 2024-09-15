@@ -41,10 +41,10 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const previewImageModal = document.querySelector("#card-image-modal");
 const imageModalCloseButton = document.querySelector("#image-modal-close");
-const imageModalForm = document.querySelector("#image-modal-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+const cardEditForm = document.querySelector("#card-edit-form");
 const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-url-input");
 
@@ -69,6 +69,12 @@ function getCardElement(cardData) {
   //HINT:find the previewImageModal with the other elements^ call it with the image element that will be in cardImageEL
 
   cardImageEl.addEventListener("click", () => {
+    const modalImage = previewImageModal.querySelector(".modal__image");
+    const modalImageName =
+      previewImageModal.querySelector(".modal__image-name");
+    modalImageName.textContent = cardData.name;
+    modalImage.src = cardImageEl.src;
+    modalImage.alt = cardImageEl.alt;
     openModal(previewImageModal);
   });
 
@@ -115,14 +121,20 @@ profileEditForm.addEventListener("submit", (event) => {
   closeModal(profileEditModal);
 });
 
-imageModalForm.addEventListener("submit", (event) => {
+cardEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-  const cardElement = getCardElement({
-    name,
-    link,
-  });
+
+  const cardData = {
+    name: cardTitleInput.value,
+    link: cardUrlInput.value,
+    alt: cardTitleInput.value,
+  };
+
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
+
+  cardTitleInput.value = "";
+  cardUrlInput.value = "";
   closeModal(addCardModal);
 });
 
