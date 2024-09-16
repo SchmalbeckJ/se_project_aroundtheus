@@ -64,10 +64,6 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  //add click listener to the cardImageEL
-  // openModal with previewImageModal HINT:add it into HTML????
-  //HINT:find the previewImageModal with the other elements^ call it with the image element that will be in cardImageEL
-
   cardImageEl.addEventListener("click", () => {
     const modalImage = previewImageModal.querySelector(".modal__image");
     const modalImageName =

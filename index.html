@@ -107,18 +107,16 @@
     </div>
     <!-- image modal-->
     <div class="modal" id="card-image-modal">
-      <div class="modal__container">
+      <form class="modal__form modal__image-form" id="image-modal-form">
+        <img src="" alt="" class="modal__image" />
         <button
-          class="modal__close"
+          class="modal__close modal__image-close"
           id="image-modal-close"
           type="button"
           aria-label="close"
         ></button>
-        <form class="modal__form modal__image-form" id="image-modal-form">
-          <img src="" alt="" class="modal__image" />
-          <h2 class="modal__image-name"></h2>
-        </form>
-      </div>
+        <h2 class="modal__image-name"></h2>
+      </form>
     </div>
     <!---->
     <template id="card-template">
