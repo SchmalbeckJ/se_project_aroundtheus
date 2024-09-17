@@ -50,11 +50,18 @@ const cardUrlInput = document.querySelector("#card-url-input");
 
 //functions
 function openModal(modal) {
-  modal.classList.add("modal_opened");
+  modal.style.display = "flex";
+  requestAnimationFrame(() => {
+    modal.classList.add("modal_opened");
+  });
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.addEventListener("transitionend", function handler() {
+    modal.style.display = "none";
+    modal.removeEventListener("transitionend", handler);
+  });
 }
 
 function getCardElement(cardData) {
