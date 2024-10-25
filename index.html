@@ -57,20 +57,32 @@
           <input
             type="text"
             name="title"
-            id="profile-title-input"
             placeholder="Name"
             class="modal__title modal__input"
+            id="profile-title-input"
+            maxlength="40"
+            minlength="2"
             required
           />
+          <span class="modal__input_error" id="profile-title-input-error"
+            >error message</span
+          >
           <input
             type="text"
             name="description"
-            id="profile-description-input"
             placeholder="Description"
             class="modal__description modal__input"
+            id="profile-description-input"
+            maxlength="40"
+            minlength="2"
             required
           />
-          <button class="modal__button" type="submit">Save</button>
+          <span class="modal__input_error" id="profile-description-input-error"
+            >error message</span
+          >
+          <button class="modal__button modal__button_disabled" type="submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -88,26 +100,40 @@
           <input
             type="text"
             name="Place"
-            id="card-title-input"
             placeholder="Title"
             class="modal__title modal__input"
+            id="card-title-input"
+            maxlength="40"
+            minlength="2"
             required
           />
+          <span class="modal__input_error" id="card-title-input-error"
+            >error message</span
+          >
+
           <input
             type="text"
             name="url"
-            id="card-url-input"
             placeholder="Image URL"
             class="modal__description modal__input"
+            id="card-url-input"
+            maxlength="40"
+            minlength="2"
             required
           />
-          <button class="modal__button" type="submit">Save</button>
+          <span class="modal__input_error" id="card-url-input-error"
+            >error message</span
+          >
+
+          <button class="modal__button modal__button_disabled" type="submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
     <!-- image modal-->
     <div class="modal" id="card-image-modal">
-      <form class="modal__form modal__image-form" id="image-modal-form">
+      <form class="modal__image-form" id="image-modal-form">
         <img src="" alt="" class="modal__image" />
         <button
           class="modal__close modal__image-close"
@@ -138,5 +164,6 @@
       </li>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
