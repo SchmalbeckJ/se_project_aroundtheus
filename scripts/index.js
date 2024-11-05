@@ -115,7 +115,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("click", (event) => {
+  modal.addEventListener("mousedown", (event) => {
     if (event.target.classList.contains("modal_opened")) {
       closeModal(modal);
     }
