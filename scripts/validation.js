@@ -23,12 +23,31 @@ function checkInputValidity(formEl, inputEl, option) {
   }
 }
 
+function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+  let foundinvalid = false;
+  inputEls.forEach((inputEl) => {
+    if (!inputEl.validity.valid) {
+      foundinvalid = true;
+    }
+  });
+
+  if (foundinvalid) {
+    submitButton.classList.add(inactiveButtonClass);
+    submitButton.disabled = true;
+  } else {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
+  }
+}
+
 function setEventlisteners(formEl, option) {
   const { inputSelector } = option;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
+  const submitButton = formEl.querySelector(".modal__button");
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, option);
+      toggleButtonState(inputEls, submitButton, option);
     });
   });
 }
@@ -37,21 +56,10 @@ function enableValidation(option) {
   const formEls = [...document.querySelectorAll(option.formSelector)];
   formEls.forEach((formEl) => {
     formEl.addEventListener("submit", (e) => {
-      e.preventDefault();
+      e.preventDefault(inputEls);
     });
 
     setEventlisteners(formEl, option);
-
-    // look for all inputs inside of form
-    // loop through all  inputs to see if all are valid
-    // if any input is not valid
-    // grab the validation message
-    //add error class to input
-    //display error message
-    //disable button
-    // if all inputs are vaild
-    // enable button
-    //reset error messages
   });
 }
 

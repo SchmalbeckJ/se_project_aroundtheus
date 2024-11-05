@@ -49,6 +49,7 @@ const modalImageName = previewImageModal.querySelector(".modal__image-name");
 const closeButtons = document.querySelectorAll(".modal__close");
 
 //functions
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
@@ -104,7 +105,23 @@ closeButtons.forEach((button) => {
   });
 });
 
-// Update profile on form submission
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    const modalOpened = document.querySelector(".modal_opened");
+    if (modalOpened) {
+      closeModal(modalOpened);
+    }
+  }
+});
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (event.target.classList.contains("modal_opened")) {
+      closeModal(modal);
+    }
+  });
+});
+
 modalForm.addEventListener("submit", (event) => {
   event.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
