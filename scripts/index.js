@@ -36,7 +36,7 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const modalForm = document.querySelector(".modal__form");
+const ProfileForm = document.querySelector(".modal__form");
 const previewImageModal = document.querySelector("#card-image-modal");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
@@ -52,11 +52,30 @@ const closeButtons = document.querySelectorAll(".modal__close");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscClose);
 }
+
+function handleEscClose(e) {
+  if (e.key === "Escape") {
+    const modalOpened = document.querySelector(".modal_opened");
+    if (modalOpened) {
+      closeModal(modalOpened);
+    }
+  }
+}
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("mousedown", (event) => {
+    if (event.target.classList.contains("modal_opened")) {
+      closeModal(modal);
+    }
+  });
+});
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -105,24 +124,7 @@ closeButtons.forEach((button) => {
   });
 });
 
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    const modalOpened = document.querySelector(".modal_opened");
-    if (modalOpened) {
-      closeModal(modalOpened);
-    }
-  }
-});
-
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("mousedown", (event) => {
-    if (event.target.classList.contains("modal_opened")) {
-      closeModal(modal);
-    }
-  });
-});
-
-modalForm.addEventListener("submit", (event) => {
+ProfileForm.addEventListener("submit", (event) => {
   event.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
