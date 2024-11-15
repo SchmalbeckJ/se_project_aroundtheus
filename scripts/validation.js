@@ -69,7 +69,7 @@ const checking = {
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: ".modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
-  errorClass: "popup__error_visible",
+  errorClass: "modal__input__error_visible",
 };
 
 enableValidation(checking);
